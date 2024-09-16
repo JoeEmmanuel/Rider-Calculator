@@ -1,35 +1,37 @@
+"use client";
+
+import Link from "next/link";
+import { MdMenu } from "react-icons/md";
+
 export const NavBar = () => {
   return (
-    <nav className="flex items-center justify-between bg-background px-6 py-4 text-foreground">
-      <div>
-        <a href="#" className="text-2xl">
-          Logo
-        </a>
-      </div>
-      <div>
-        <ul className="flex">
+    <nav className="flex items-center justify-between px-6 py-5 md:px-10 lg:px-[100px]">
+      <section>
+        <Link href="/" className="text-xl font-bold text-primary-100">
+          RideCompare
+        </Link>
+      </section>
+      <section className="md:flex md:flex-1 md:justify-center">
+        <MdMenu className="cursor-pointer text-2xl md:hidden" />
+
+        <ul className="hidden md:flex md:gap-2">
           <li>
-            <a href="#" className="ml-4 text-sm">
+            <Link href="/" className="ml-4 text-lg">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="ml-4 text-sm">
+            <Link href="#" className="ml-4 text-lg">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="ml-4 text-sm">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#" className="ml-4 text-sm">
+            <Link href="#" className="ml-4 text-lg">
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
-      </div>
+      </section>
     </nav>
   );
 };
