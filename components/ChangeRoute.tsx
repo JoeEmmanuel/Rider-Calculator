@@ -191,7 +191,7 @@ const ChangeRoute = () => {
     <section className="px-6 py-5 md:px-16 lg:px-[100px] 2xl:px-40">
       <div className="flex cursor-pointer flex-col gap-7 rounded-md bg-secondary-100 px-3 py-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-base">Change Route</h2>
+          <h2 className="text-base md:text-xl">Change Route</h2>
           <IoIosArrowDown
             onClick={() => setShowRoute((prev) => !prev)}
             className={`bg-red-500 text-lg transition-all lg:hidden ${showRoute ? "rotate-180" : "rotate-0"}`}
@@ -213,7 +213,7 @@ const ChangeRoute = () => {
               <section className="flex items-center justify-between px-4">
                 <div className="flex items-center gap-3">
                   <Image alt="Ride logo" width={70} height={40} src={data.image} />
-                  <h2 className="text-xl font-medium text-[#161C2D]">{data.name}</h2>
+                  <h2 className="text-lg font-medium text-[#161C2D] lg:text-2xl">{data.name}</h2>
                 </div>
                 {data.cheapest && (
                   <div className="rounded-full bg-primary-50 px-8 py-1">

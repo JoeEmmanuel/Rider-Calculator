@@ -6,7 +6,7 @@ const Routes = () => {
   return (
     <section className="flex flex-col md:items-center lg:flex-row lg:items-end">
       <div className="flex flex-col gap-5 md:flex-row lg:pr-5">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 lg:w-[380px] lg:max-w-full">
           <section className="flex items-center gap-3">
             <div className="flex max-w-full rounded-full bg-[#EEEEEE] p-3">
               <HiLocationMarker className="text-xl" />
@@ -15,7 +15,7 @@ const Routes = () => {
           </section>
           <section className="flex justify-between gap-3 rounded-lg border border-[#D7D7D7] px-4 py-2 lg:items-center">
             <div className="flex w-64 flex-col md:w-full md:flex-row">
-              <p className="break-words text-base leading-6">
+              <p className="break-words text-sm leading-6">
                 TSarjapur - Marathahalli Road, Countryside Layout, Rainbow Drive, Bengaluru,
                 Karnataka,…
               </p>
@@ -23,7 +23,7 @@ const Routes = () => {
             <FaTimesCircle className="text-base" />
           </section>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 lg:w-[380px] lg:max-w-full">
           <section className="flex items-center gap-3">
             <div className="flex max-w-full rounded-full bg-[#EEEEEE] p-3">
               <HiLocationMarker className="text-xl" />
@@ -32,7 +32,7 @@ const Routes = () => {
           </section>
           <section className="flex justify-between gap-3 rounded-lg border border-[#D7D7D7] px-4 py-2 lg:items-center">
             <div className="flex w-64 flex-col md:w-full md:flex-row">
-              <p className="break-words text-base leading-6">
+              <p className="break-words text-sm leading-6">
                 TSarjapur - Marathahalli Road, Countryside Layout, Rainbow Drive, Bengaluru,
                 Karnataka,…
               </p>
@@ -41,7 +41,7 @@ const Routes = () => {
           </section>
         </div>
       </div>
-      <button className="mt-4 w-full rounded-lg bg-[#D3D3D3] py-3 text-center text-white md:w-80">
+      <button className="mt-4 w-full rounded-lg bg-[#D3D3D3] py-3 text-center text-white md:w-80 lg:w-auto lg:px-10">
         Compare Prices
       </button>
     </section>
