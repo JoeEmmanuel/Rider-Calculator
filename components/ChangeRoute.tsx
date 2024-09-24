@@ -1,13 +1,34 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown, IoMdPerson } from "react-icons/io";
 import Routes from "./Routs";
 import Image from "next/image";
 import { RxDotFilled } from "react-icons/rx";
+import Loader from "./Loader";
 
-const ChangeRoute = () => {
+interface FetchDataResponse {
+  message: string;
+}
+
+type FetchDataFunction = () => Promise<FetchDataResponse>;
+
+interface ComparePricesClientProps {
+  fetchData: FetchDataFunction;
+}
+
+const ChangeRoute: React.FC<ComparePricesClientProps> = ({ fetchData }) => {
   const [showRoute, setShowRoute] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const loadData = async () => {
+      const result = await fetchData();
+      console.log(result);
+      setLoading(false);
+    };
+
+    loadData();
+  }, [fetchData]);
   // *dommy data source
   // *remove this when api is ready
   const dataSource = [
@@ -187,6 +208,10 @@ const ChangeRoute = () => {
       ],
     },
   ];
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <section className="px-6 py-5 md:px-16 lg:px-[100px] 2xl:px-40">
       <div className="flex cursor-pointer flex-col gap-7 rounded-md bg-secondary-100 px-3 py-4">
@@ -194,7 +219,7 @@ const ChangeRoute = () => {
           <h2 className="text-base md:text-xl">Change Route</h2>
           <IoIosArrowDown
             onClick={() => setShowRoute((prev) => !prev)}
-            className={`bg-red-500 text-lg transition-all lg:hidden ${showRoute ? "rotate-180" : "rotate-0"}`}
+            className={`text-lg transition-all lg:hidden ${showRoute ? "rotate-180" : "rotate-0"}`}
           />
         </div>
         {showRoute && <Routes />}
@@ -225,7 +250,7 @@ const ChangeRoute = () => {
               {/* Details section */}
               <section className="flex flex-col gap-4 px-4">
                 {data.details.map((info, idx) => (
-                  <div className="lex flex-col gap-1">
+                  <div key={idx} className="lex flex-col gap-1">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
                         <h2 className="pr-2 text-xl font-medium">{info.type}</h2>
