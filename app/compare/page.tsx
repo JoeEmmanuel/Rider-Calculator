@@ -1,6 +1,11 @@
+import { Metadata } from "next";
 import ChangeRoute from "@/components/ChangeRoute";
-import Loader from "@/components/Loader";
+// import Loader from "@/components/Loader";
 import React, { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Compare Rides",
+};
 
 async function fetch(): Promise<{ message: string }> {
   "use server";
@@ -11,9 +16,7 @@ async function fetch(): Promise<{ message: string }> {
 const ComparePrices = async () => {
   return (
     <main>
-      {/* <Suspense fallback={<Loader />}> */}
       <ChangeRoute fetchData={fetch} />
-      {/* </Suspense> */}
     </main>
   );
 };
