@@ -34,29 +34,32 @@ const HomeSection = () => {
     <div className="flex flex-col gap-4 pb-5 md:gap-12 lg:flex-row lg:gap-16">
       <main className="flex flex-col gap-8 px-6 pt-5 md:px-0 lg:w-full">
         <section>
-          <h1 className="text-[32px] font-medium text-[#161C2D] md:text-[40px] 2xl:text-[55px]">
+          <h1 className="text-textColor-100 text-center text-[2rem] font-medium leading-10 md:text-[40px] md:leading-[3.6rem] 2xl:text-[55px]">
             Find the Best Ride at the Best Price
           </h1>
-          <p className="text[#161C2D] pt-4 text-sm md:text-lg">
+          <p className="text-textColor-25 pt-4 text-center text-sm md:text-lg">
             Compare prices from top e-hailing services and save money on your next ride
           </p>
         </section>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
-          <div className="relative flex flex-col gap-4">
-            <div className="bordeer-[#EEEEEE] flex justify-end rounded-lg border bg-secondary-100 md:h-14">
+          <div className="relative flex flex-col gap-2">
+            <div className="bordeer-[#EEEEEE] flex w-full items-center gap-4 rounded-full border bg-secondary-100 px-4 md:h-14">
+              <div className="border-textColor-25 h-2 w-2 rounded-md border-2"></div>
               <input
                 {...register("pickUp")}
                 type="text"
-                className="max-w-[90%] flex-1 bg-secondary-100 py-2 pl-4 pr-px outline-none"
+                className="flex-1 bg-secondary-100 py-2 outline-none"
                 placeholder="Add a pick-up location"
               />
             </div>
+            <div className="bg-textColor-25 ml-5 min-h-4 w-[1px] md:min-h-7"></div>
 
-            <div className="bordeer-[#EEEEEE] flex justify-end rounded-lg border bg-secondary-100 md:h-14">
+            <div className="bordeer-[#EEEEEE] flex w-full items-center gap-4 rounded-full border bg-secondary-100 px-4 md:h-14">
+              <div className="border-textColor-25 h-2 w-2 rounded-md border-2"></div>
               <input
                 {...register("destination")}
                 type="text"
-                className="max-w-[90%] flex-1 bg-secondary-100 py-2 pl-4 pr-px outline-none"
+                className="max-w-[90%] flex-1 bg-secondary-100 py-2 pl-2 pr-px outline-none"
                 placeholder="Enter youur destination"
               />
             </div>
@@ -71,17 +74,19 @@ const HomeSection = () => {
             </section>
 
             {/* /input design */}
-            <section className="absolute left-4 top-4 flex flex-col items-center gap-1 md:left-7 md:top-5">
+            {/* <section className="absolute left-4 top-4 flex flex-col items-center gap-1 md:left-7 md:top-5">
               <div className="h-2 w-2 rounded-md border-2 border-black"></div>
               <div className="min-h-[42px] w-[2px] bg-black md:min-h-[60px]"></div>
               <div className="h-2 w-2 border-2 border-black"></div>
-            </section>
+            </section> */}
           </div>
-          <button
-            type="submit"
-            className="w-full rounded-lg bg-primary-100 py-3 text-center text-white">
-            Compare Prices
-          </button>
+          <div className="flex items-center justify-center md:justify-start">
+            <button
+              type="submit"
+              className="w-fit items-center rounded-full bg-primary-100 px-6 py-3 text-white">
+              Compare Prices
+            </button>
+          </div>
         </form>
       </main>
       <section className="min-h-3 w-full max-w-full px-6 py-2 md:px-0 md:pt-5 lg:w-[900px]">

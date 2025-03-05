@@ -10,12 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          100: "rgba(71, 59, 240, 1)",
-          50: "rgba(71, 59, 240, 0.2)",
+          100: "#1E1E1E",
+          50: "#CBCBCB",
         },
         secondary: {
-          100: "rgba(249, 249, 249, 1)",
-          50: "rgba(246, 246, 246, 1)",
+          100: "#FAFAFA",
+          50: "#F7F7F7",
+        },
+        textColor: {
+          100: "#3B3B3B",
+          50: "#636363",
+          25: "#9E9E9E",
         },
       },
     },
