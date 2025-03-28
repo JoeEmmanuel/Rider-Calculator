@@ -11,23 +11,12 @@ export const NavBar = () => {
           RideCompare
         </Link>
       </section>
-      <section className="md:flex md:flex-1 md:justify-center">
-        <MdMenu className="cursor-pointer text-2xl md:hidden" />
-
-        <ul className="hidden md:flex md:gap-2">
+      <section className="">
+        {/* <MdMenu className="cursor-pointer text-2xl md:hidden" /> */}
+        <ul className="flex md:gap-2">
           <li>
-            <Link href="/" className="ml-4 text-lg">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="#" className="ml-4 text-lg">
+            <Link href="#" className="text-base font-normal text-primary-100">
               About
-            </Link>
-          </li>
-          <li>
-            <Link href="#" className="ml-4 text-lg">
-              Contact
             </Link>
           </li>
         </ul>

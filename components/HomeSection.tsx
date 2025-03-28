@@ -1,93 +1,20 @@
-"use client";
 import Image from "next/image";
-import Link from "next/link";
-import { z } from "zod";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { create } from "@/actions/action";
-import { Router } from "next/router";
-import { useRouter } from "next/navigation";
-
-const LocationSchema = z.object({
-  pickUp: z.string().min(3, { message: "Pick up is required" }),
-  destination: z.string().min(3, { message: "Destination up is required" }),
-});
-
-export type LocationSchemaType = z.infer<typeof LocationSchema>;
+import React from "react";
+import Form from "./Form";
 
 const HomeSection = () => {
-  // react-hook-form
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<LocationSchemaType>({
-    resolver: zodResolver(LocationSchema),
-  });
-  const router = useRouter();
-  const onSubmit: SubmitHandler<LocationSchemaType> = async (formData) => {
-    await create(formData); // if this is returning a response turn this into a try catch and redirect the user to the compare page
-  };
-
   return (
     <div className="flex flex-col gap-4 pb-5 md:gap-12 lg:flex-row lg:gap-16">
       <main className="flex flex-col gap-8 px-6 pt-5 md:px-0 lg:w-full">
         <section>
-          <h1 className="text-textColor-100 text-center text-[2rem] font-medium leading-10 md:text-[40px] md:leading-[3.6rem] 2xl:text-[55px]">
+          <h1 className="text-center text-[2rem] font-medium leading-10 text-textColor-100 md:text-[40px] md:leading-[3.6rem] 2xl:text-[55px]">
             Find the Best Ride at the Best Price
           </h1>
-          <p className="text-textColor-25 pt-4 text-center text-sm md:text-lg">
+          <p className="pt-4 text-center text-sm text-textColor-25 md:text-lg">
             Compare prices from top e-hailing services and save money on your next ride
           </p>
         </section>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
-          <div className="relative flex flex-col gap-2">
-            <div className="bordeer-[#EEEEEE] flex w-full items-center gap-4 rounded-full border bg-secondary-100 px-4 md:h-14">
-              <div className="border-textColor-25 h-2 w-2 rounded-md border-2"></div>
-              <input
-                {...register("pickUp")}
-                type="text"
-                className="flex-1 bg-secondary-100 py-2 outline-none"
-                placeholder="Add a pick-up location"
-              />
-            </div>
-            <div className="bg-textColor-25 ml-5 min-h-4 w-[1px] md:min-h-7"></div>
-
-            <div className="bordeer-[#EEEEEE] flex w-full items-center gap-4 rounded-full border bg-secondary-100 px-4 md:h-14">
-              <div className="border-textColor-25 h-2 w-2 rounded-md border-2"></div>
-              <input
-                {...register("destination")}
-                type="text"
-                className="max-w-[90%] flex-1 bg-secondary-100 py-2 pl-2 pr-px outline-none"
-                placeholder="Enter youur destination"
-              />
-            </div>
-            {/* /error messages */}
-            <section className="flex flex-col gap-1">
-              {errors?.pickUp && (
-                <span className="pb-px text-sm text-red-700">{errors?.pickUp?.message}</span>
-              )}
-              {errors?.destination && (
-                <span className="text-sm text-red-700">{errors?.destination?.message}</span>
-              )}
-            </section>
-
-            {/* /input design */}
-            {/* <section className="absolute left-4 top-4 flex flex-col items-center gap-1 md:left-7 md:top-5">
-              <div className="h-2 w-2 rounded-md border-2 border-black"></div>
-              <div className="min-h-[42px] w-[2px] bg-black md:min-h-[60px]"></div>
-              <div className="h-2 w-2 border-2 border-black"></div>
-            </section> */}
-          </div>
-          <div className="flex items-center justify-center md:justify-start">
-            <button
-              type="submit"
-              className="w-fit items-center rounded-full bg-primary-100 px-6 py-3 text-white">
-              Compare Prices
-            </button>
-          </div>
-        </form>
+        <Form />
       </main>
       <section className="min-h-3 w-full max-w-full px-6 py-2 md:px-0 md:pt-5 lg:w-[900px]">
         <Image
