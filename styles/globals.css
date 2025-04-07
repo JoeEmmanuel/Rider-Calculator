@@ -8,6 +8,25 @@
   animation: loader 0.5s infinite linear;
 }
 
+.heroImg {
+   background-image: url(../public/images/Hero-desktop-Image.svg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 0%;
+   width: 100%;
+   height: 100svh;
+}
+
+.heroImgMobile {
+   background-image: url(../public/images/Hero-Mobile-Image.svg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 0%;
+   width: 100%;
+   height: 100svh;
+}
+
+
 @keyframes loader {
     from {
        transform: rotate(0deg);

@@ -6,7 +6,7 @@ import Form from "./Form";
 const Routes = () => {
   return (
     <section className="flex flex-col gap-4">
-      <div className="flex flex-col gap-5 lg:pr-5">
+      <div className="flex flex-col gap-5">
         {/* <div className="flex flex-col gap-4 lg:w-[380px] lg:max-w-full">
           <section className="flex justify-between gap-3 rounded-lg border border-[#D7D7D7] px-4 py-2 lg:items-center">
             <div className="flex w-64 flex-col md:w-full md:flex-row">
